@@ -2,10 +2,10 @@
 
 let path = require("path");
 let fs = require("fs");
+let promisify = require("es6-promisify");
 let mkdirp = promisify(require("mkdirp"));
 let EventEmitter = require("events");
 
-let promisify = require("es6-promisify");
 // glob.glob here is just exploiting a hidden property of glob to allow
 // me to stub this for testing. I know it's an old API compatibility
 // feature.

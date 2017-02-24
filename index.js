@@ -81,11 +81,11 @@ class FileStore extends EventEmitter {
   destroy(sid) {
     let sessionGlob = path.join(this.options.sessionDirectory,
       `${sid}__*.json`);
-    return glob(sessionGlob, {nonull: false}).then((err, files) => {
+    return glob(sessionGlob, {nonull: false}).then((files) => {
       if (files.length === 0) {
         return null;
       }
-      return unlink(path.join(this.options.sessionDirectory, files[0]));
+      return unlink(files[0]);
     });
   }
 }
